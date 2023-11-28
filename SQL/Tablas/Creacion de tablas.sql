@@ -1,0 +1,24 @@
+CREATE DATABASE FLunaSCISA
+
+CREATE TABLE Doctor(
+IdDoctor INT PRIMARY KEY IDENTITY(1,1),
+Nombre VARCHAR(100),
+Especialidad VARCHAR(50)
+)
+
+CREATE TABLE Paciente(
+IdPaciente INT PRIMARY KEY IDENTITY(1,1),
+Nombre VARCHAR(50) NOT NULL,
+Edad INT,
+FechaNacimiento DATE,
+Telefono VARCHAR(20)
+)
+
+CREATE TABLE Cita(
+IdCita INT PRIMARY KEY IDENTITY(1,1),
+FechaCita DATE,
+IdDoctor INT,
+IdPaciente INT,
+FOREIGN KEY (IdDoctor) REFERENCES Doctor(IdDoctor),
+FOREIGN KEY(IdPaciente) REFERENCES Paciente(IdPaciente)
+)
